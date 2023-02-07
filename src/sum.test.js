@@ -25,10 +25,9 @@ test('Constの練習', () => {
 
 test('Consoleの練習', () => {
   const total = 42+42;
-  console.log("total"); // => 1
+  console.log(total); 
 
   const value = "値";
-  console.log(value); // => ReferenceError: x is no
-
+  console.log(value); 
 });
 
