@@ -63,5 +63,28 @@ test('文字列の練習3', () => {
 });
 
 
+test('オブジェクトの練習', () => {
+  const obj= {
+    address:"東京都",
+    telephone:"03",
+    age:24,
+    hasLicense:true,
+    nested:{value:1}
+  }
+  expect(obj.address).toBe("東京都");
+  expect(obj["telephone"]).toBe("03");
+  expect(obj["age"]).toBe(24);
+  expect(obj.hasLicense).toBe(true);
+  expect(obj.nested.value).toBe(1);
+  //"."で掘り下げることができる
+});
+
+test('オブジェクトの練習1', () => {
+  const array = ["index1",true,{age:24}]
+
+  expect(array[0]).toBe("index1");
+  expect(array[1]).toBe(true);
+  expect(array[2].age).toBe(24);
+});
 
 
