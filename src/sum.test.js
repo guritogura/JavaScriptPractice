@@ -172,3 +172,19 @@ test('デフォルト引数の練習', () => {
   expect(addPrefix2("abc") ).toBe("デフォルト:abc");
   expect(addPrefix2("abc","d") ).toBe("dabc");
 });
+// Mainブランチをしっかり確認する
+test('functionとArrow functionの練習', () => {
+  const a = function(x){
+    return x*x;
+  }
+  const b = (x) =>{
+    return x*x;
+  }
+  const c = x => x*x;
+  expect(a(3)).toBe(9);
+  expect(b(8)).toBe(64);
+  expect(a(11)).toBe(121);
+}
+
+  
+);
