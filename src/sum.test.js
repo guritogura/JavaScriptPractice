@@ -205,3 +205,93 @@ test('If/elseIfの練習', () => {
   expect(A(3)).toBe("unknown");
 } 
 );
+
+
+test('elseの練習1', () => {
+  const A = function(year){
+    if (year % 4 === 0) { // 4で割り切れる
+      if (year % 100 === 0) { // 100で割り切れる
+          if (year % 400 === 0) { // 400で割り切れる
+              return true;
+          } else {
+              return false;
+          }
+      } else {
+          return true;
+      }
+  } else {
+      return false;
+  }
+  }
+
+  expect(A(2020)).toBe(true);
+  expect(A(2023)).toBe(false);
+  expect(A(2000)).toBe(true);
+  expect(A(2100)).toBe(false);
+} 
+);
+
+test('elseの練習2', () => {
+  const A = function(year){
+    if (year % 400 === 0) { // 4で割り切れる
+      return true;
+  }else if(year % 100 === 0){
+      return false;
+  }else if(year % 4 === 0){
+      return true;
+  }else{
+      return false;
+  }}
+
+  expect(A(2020)).toBe(true);
+  expect(A(2023)).toBe(false);
+  expect(A(2000)).toBe(true);
+  expect(A(2100)).toBe(false);
+} 
+);
+
+test('Switchの練習', () => {
+  const A = function(version){
+   switch(version){
+    case "ES5":
+      return "ECMAScript 5";
+    case "ES6":
+      return "ECMAScript 2015";
+    case "ES7":
+      return "ECMAScript 2016";
+    default:
+      return "unknown";
+   }
+  }
+
+  expect(A("ES5")).toBe("ECMAScript 5");
+  expect(A("ES6")).toBe("ECMAScript 2015");
+  expect(A("ES7")).toBe("ECMAScript 2016");
+  expect(A(3)).toBe("unknown");
+} 
+);
+
+test('Switchの練習', () => {
+  const A = function(janken){
+   switch(janken % 4){
+    case 0:
+      return "あいこ";
+    case 1:
+      return "ぐー";
+    case 2:
+      return "ちょき";
+    case 3:
+      return "パー";
+    default:
+      return "Unknown";
+   }
+  }
+
+  expect(A(4)).toBe("あいこ");
+  expect(A(1)).toBe("ぐー");
+  expect(A(2)).toBe("ちょき");
+  expect(A(3)).toBe("パー");
+  expect(A("じゃんけんしよう")).toBe("Unknown");
+
+} 
+);
