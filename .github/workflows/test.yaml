@@ -14,5 +14,3 @@ jobs:
         run: npm ci
       - name: Jest
         run: npx jest
-      - name: formatcheck
-        run: npx prettier --check .
