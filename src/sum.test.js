@@ -280,3 +280,5 @@ test("Switchの練習", () => {
   expect(A(3)).toBe("パー");
   expect(A("じゃんけんしよう")).toBe("Unknown");
 });
+
+const a=1;
