@@ -393,3 +393,40 @@ test("someとfilterの練習", () => {
   //returnを使用しない場合は;と{}が不要
   expect(array.filter((number) => number % 2 !== 0)).toStrictEqual([1, 3, 5]);
 });
+
+test("オブジェクトの練習", () => {
+  const obj = {};
+  expect(Object.keys(obj)).toStrictEqual([]);
+
+  const blueGreen = "blue-green";
+
+  const color = {
+    red: "red",
+    green: "green",
+    blue: "blue",
+    [blueGreen]: "blue-green",
+  };
+  expect(Object.keys(color).length).toStrictEqual(4);
+  expect(color.red).toBe("red");
+
+  expect(color.green).toBe("green");
+
+  expect(color.blue).toBe("blue");
+
+  const AAA = "あああ";
+
+  const A1 = {
+    AAA: AAA,
+  };
+
+  const A2 = {
+    AAA,
+  };
+  expect(A1).toStrictEqual(A2);
+
+  color.orange = "orange";
+  expect(color.orange).toStrictEqual("orange");
+
+  // color["blue-green"] = "blue-green";
+  expect(color["blue-green"]).toStrictEqual("blue-green");
+});
