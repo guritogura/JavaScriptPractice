@@ -430,3 +430,39 @@ test("オブジェクトの練習", () => {
   // color["blue-green"] = "blue-green";
   expect(color["blue-green"]).toStrictEqual("blue-green");
 });
+
+//プロパティのチェックの方法
+//undefinedでチェックする方法
+test("undefinedでチェックする方法", () => {
+  const obj = {
+    one: 1,
+  };
+  expect(obj.one).toStrictEqual(1);
+  expect(obj.two).toStrictEqual(undefined);
+});
+
+//Object.hasOwnを呼び出す練習
+test("Object.hasOwnを呼び出す練習", () => {
+  const obj = {
+    one: 1,
+  };
+  expect(Object.hasOwn(obj, "one")).toStrictEqual(true);
+  expect(Object.hasOwn(obj, "two")).toStrictEqual(false);
+});
+
+//Object.keys, Object.values, Object.entiriesを呼び出してテストコードで動きを確認してみる
+
+test("Object.keys, Object.values, Object.entiriesを呼び出してテストコードで動きを確認してみる", () => {
+  const obj = {
+    one: 1,
+    two: 2,
+    three: 3,
+  };
+  expect(Object.keys(obj)).toStrictEqual(["one", "two", "three"]);
+  expect(Object.values(obj)).toStrictEqual([1, 2, 3]);
+  expect(Object.entries(obj)).toStrictEqual([
+    ["one", 1],
+    ["two", 2],
+    ["three", 3],
+  ]);
+});
