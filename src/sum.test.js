@@ -466,3 +466,33 @@ test("Object.keys, Object.values, Object.entiriesを呼び出してテストコ�
     ["three", 3],
   ]);
 });
+
+test("Object assignとSpread構文", () => {
+  const a = {
+    one: 1,
+    two: 2,
+    three: 3,
+  };
+
+  const b = {
+    four: 4,
+    five: 5,
+    three: 30,
+  };
+
+  expect(Object.assign({}, a, b)).toStrictEqual({
+    one: 1,
+    two: 2,
+    three: 30,
+    four: 4,
+    five: 5,
+  });
+  expect({ ...a, ...b, six: 6 }).toStrictEqual({
+    one: 1,
+    two: 2,
+    three: 30,
+    four: 4,
+    five: 5,
+    six: 6,
+  });
+});
