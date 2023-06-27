@@ -496,3 +496,25 @@ test("Object assignとSpread構文", () => {
     six: 6,
   });
 });
+
+test("配列の分割代入の練習", () => {
+  const array = [1, 2, 3];
+  const [first, two, three] = array;
+
+  expect(array[0]).toStrictEqual(first);
+  expect(array[1]).toStrictEqual(two);
+  expect(array[2]).toStrictEqual(three);
+});
+
+test("Indexofの練習", () => {
+  const array = [1, 2, 3, "red"];
+
+  expect(array.indexOf(0)).toStrictEqual(-1);
+  expect(array.indexOf(1)).toStrictEqual(0);
+  expect(array.indexOf("red")).toStrictEqual(3);
+
+  const obj = { blue: "青" };
+  const array1 = [1, 2, 3, obj];
+  expect(array1.indexOf({ blue: "青" })).toStrictEqual(-1);
+  expect(array1.indexOf(obj)).toStrictEqual(3);
+});
