@@ -518,3 +518,48 @@ test("Indexofの練習", () => {
   expect(array1.indexOf({ blue: "青" })).toStrictEqual(-1);
   expect(array1.indexOf(obj)).toStrictEqual(3);
 });
+
+test("FindIndexの練習", () => {
+  const obj = { test: "中身" };
+  const array = [1, 2, 3, obj];
+
+  expect(
+    array.findIndex((obj) => {
+      return obj.test === "中身";
+    })
+  ).toStrictEqual(3);
+
+  expect(
+    array.find((obj) => {
+      return obj.test === "中身";
+    })
+  ).toStrictEqual(obj);
+
+  expect(
+    array.find((obj) => {
+      return false;
+    })
+  ).toStrictEqual(undefined);
+});
+
+test("SliceとIncludesの練習", () => {
+  const obj = { test: "中身" };
+  const array = [1, 2, 3, obj];
+
+  expect(array.slice(0, 3)).toStrictEqual([1, 2, 3]);
+
+  expect(array.slice(-1)).toStrictEqual([obj]);
+
+  expect(array.includes(obj)).toStrictEqual(true);
+});
+
+test("someの練習", () => {
+  const obj = { test: "中身" };
+  const array = [1, 2, 3, obj];
+
+  expect(
+    array.some((obj) => {
+      return obj.test === "中身";
+    })
+  ).toStrictEqual(true);
+});
