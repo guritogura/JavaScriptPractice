@@ -566,12 +566,58 @@ test("someの練習", () => {
 
 test("push/concat/flatの練習", () => {
   const array = [];
-  array.push([1,2,3]);
+  array.push([1, 2, 3]);
 
-  expect(array).toStrictEqual([[1,2,3]]);
+  expect(array).toStrictEqual([[1, 2, 3]]);
 
-  const newArray = array.concat([4,5,6]);
-  expect(array).toStrictEqual([[1,2,3]]);
-  expect(newArray).toStrictEqual([[1,2,3],4,5,6]);
-  expect(newArray.flat()).toStrictEqual([1,2,3,4,5,6]);
+  const newArray = array.concat([4, 5, 6]);
+  expect(array).toStrictEqual([[1, 2, 3]]);
+  expect(newArray).toStrictEqual([[1, 2, 3], 4, 5, 6]);
+  expect(newArray.flat()).toStrictEqual([1, 2, 3, 4, 5, 6]);
+});
+
+test("mapの練習", () => {
+  const array = [1, 2, 3];
+
+  expect(array.map((n) => n * 10)).toStrictEqual([10, 20, 30]);
+
+  const array2 = [{ name: "鈴木" }, { name: "いちご" }, { name: "野球" }];
+  expect(
+    array2.map((names) => {
+      return names.name;
+    })
+  ).toStrictEqual(["鈴木", "いちご", "野球"]);
+
+  const array3 = [3, -3, 5, 0];
+  expect(
+    array3.map((n) => {
+      return n >= 0;
+    })
+  ).toStrictEqual([true, false, true, true]);
+});
+
+test("filterの練習", () => {
+  const array = [1, 2, 3];
+
+  expect(array.filter((n) => n%2 === 0 )).toStrictEqual([2]);
+
+  const array2 = [{ name: "ヤクルト" }, { name: "ロッテ" }, { name: "巨人" },{ name: "阪神" }];
+  const array3 = ["ヤクルト","ロッテ"];
+  expect(
+    array2.filter((names) => {
+      return array3.includes(names.name);
+    })
+  ).toStrictEqual([{ name: "ヤクルト" }, { name: "ロッテ" }]);
+
+});
+
+test("mapとfilterの練習", () => {
+  const array2 = [{ name: "ヤクルト" }, { name: "ロッテ" }, { name: "巨人" },{ name: "阪神" }];
+  const array3 = ["ヤクルト","ロッテ"];
+  expect(
+    array2.filter((names) => {
+      return array3.includes(names.name);
+    }).map((baseball) => {return "今年の優勝チームは"+baseball.name;})
+  ).toStrictEqual(["今年の優勝チームはヤクルト","今年の優勝チームはロッテ"]);
+
 });
