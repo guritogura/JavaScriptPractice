@@ -563,3 +563,15 @@ test("someの練習", () => {
     })
   ).toStrictEqual(true);
 });
+
+test("push/concat/flatの練習", () => {
+  const array = [];
+  array.push([1,2,3]);
+
+  expect(array).toStrictEqual([[1,2,3]]);
+
+  const newArray = array.concat([4,5,6]);
+  expect(array).toStrictEqual([[1,2,3]]);
+  expect(newArray).toStrictEqual([[1,2,3],4,5,6]);
+  expect(newArray.flat()).toStrictEqual([1,2,3,4,5,6]);
+});
